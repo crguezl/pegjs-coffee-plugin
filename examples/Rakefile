@@ -1,8 +1,16 @@
 
-task :default do 
+task :simple do 
   sh "pegcoffee simple.pegjs"
 end
 
-task :run do
+task :runsimple do
   sh "coffee use_simple.coffee"
+end
+
+task :default do 
+  sh "pegcoffee cplusplus.pegjs"
+end
+
+task :run do
+  sh "coffee use_cplusplus.coffee"
 end
