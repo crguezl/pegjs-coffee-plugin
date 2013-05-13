@@ -1,3 +1,4 @@
+task :default => :run
 
 task :simple do 
   sh "pegcoffee simple.pegjs"
@@ -7,10 +8,17 @@ task :runsimple do
   sh "coffee use_simple.coffee"
 end
 
-task :default do 
+desc "Compile with pegcoffee cplusplus.pegjs"
+task :compilegrammar do 
   sh "pegcoffee cplusplus.pegjs"
 end
 
-task :run do
-  sh "coffee use_cplusplus.coffee"
+desc "Compile use_cplusplus.coffee to js"
+task :compilemain => [:compilegrammar] do
+  sh "coffee -c use_cplusplus.coffee"
+end
+
+desc "Compile use_cplusplus.coffee to js"
+task :run => [:compilemain] do
+  sh "node use_cplusplus.js"
 end

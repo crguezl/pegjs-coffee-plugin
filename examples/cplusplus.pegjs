@@ -56,7 +56,7 @@ declarator:
 
 */
 
-prog = s:(stmt +) _           {  s  }
+prog = s:(stmt *) _           {  s  }
 stmt = 
     decl                      {  'decl' }
   / e:expr SEMICOLON          {  'stmt' }

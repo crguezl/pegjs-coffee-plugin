@@ -7,22 +7,16 @@ Expr    ← Sum
 
 { 
   @reduce = (left, right)->  
-    # console.log(left); 
-    # console.log(right); 
     sum = left
-    # console.log("sum = "+sum)
     for t in right
       op = t[0]
       num = t[1]
-      #/ console.log(op)
-      #/ console.log(num)
       switch op 
-        when '+' then sum += num; break
-        when '-' then sum -= num; break
-        when '*' then sum *= num; break
-        when '/' then sum /= num; break
+        when '+' then sum += num
+        when '-' then sum -= num
+        when '*' then sum *= num
+        when '/' then sum /= num
         else console.log("Error! "+op)
-      #/ console.log("sum = "+sum)
     sum
   
 }
