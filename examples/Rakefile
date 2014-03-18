@@ -1,5 +1,6 @@
 task :default => :run
 
+desc "compile simple.pegjs"
 task :simple do 
   sh "pegcoffee simple.pegjs"
 end
@@ -21,4 +22,11 @@ end
 desc "Compile use_cplusplus.coffee to js"
 task :run => [:compilemain] do
   sh "node use_cplusplus.js"
+end
+
+
+desc "Compile leftrec.jison and run main_leftrec.js"
+task :leftrec do
+  sh "jison leftrec.jison"
+  sh "node main_leftrec.js"
 end
